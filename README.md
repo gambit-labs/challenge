@@ -4,7 +4,7 @@
 
 There is a TUF 2000-M energy meter that has a Modbus Interface described in docs/tuf-2000m.pdf
 
-There is a live text feed from a TUF 2000-M device that is available on http://tuftuf.gambitlabs.fi/feed.txt that shows the first and looks like this:
+There is a live text feed from a TUF 2000-M device that is available on http://tuftuf.gambitlabs.fi/feed.txt that shows the first 100 register values and looks like this:
 
 ```
 2017-01-11 19:12
