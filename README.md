@@ -1,10 +1,10 @@
-# TUF 2000-M challenge
+# TUF-2000M challenge
 
 ## Problem description
 
-There is a TUF 2000-M energy meter that has a Modbus Interface described in docs/tuf-2000m.pdf
+There is a TUF-2000M energy meter that has a Modbus Interface described in docs/tuf-2000m.pdf
 
-There is a live text feed from a TUF 2000-M device that is available on http://tuftuf.gambitlabs.fi/feed.txt that shows the first 100 register values and looks like this:
+There is a live text feed from a TUF-2000M device that is available on http://tuftuf.gambitlabs.fi/feed.txt that shows the first 100 register values and looks like this:
 
 ```
 2017-01-11 19:12
@@ -120,4 +120,4 @@ To help you on your way with data conversion I will give you a few clues based o
 
 Your task is to create a program that parses the data, converts it to human readable data like integers, decimals and strings and presents it in a nice way. Depending on your skills and interests you can create a web service that will provide the conversion data, or you could even create a UI to visualize the data somehow, it is entirely up to you what you make of it!
 
-Provide your solution as a Git repository preferably online like GitHub, e-mail me the link and describe your solution either in the mail or using the README markdown. If you decide to do a web service I'd love to see it up and running in the cloud.
+Provide your solution as a Git repository preferably online like GitHub, e-mail me the link and describe your solution either in the mail or using the README markdown. If you decide to do a web service I'd love to see it up and running in the cloud. 
