@@ -2,9 +2,9 @@
 
 ## Problem description
 
-There is a TUF-2000M energy meter that has a Modbus Interface described in docs/tuf-2000m.pdf
+TUF-2000M is an ultrasonic energy meter that has a [Modbus](https://en.wikipedia.org/wiki/Modbus) interface described in docs/tuf-2000m.pdf.
 
-There is a live text feed from a TUF-2000M device that is available on http://tuftuf.gambitlabs.fi/feed.txt that shows the first 100 register values and looks like this:
+Gambit has access to one of these meters and it is providing you a [live text feed](http://tuftuf.gambitlabs.fi/feed.txt) that shows the time of the reading followed by the first 100 register values which look like this:
 
 ```
 2017-01-11 19:12
