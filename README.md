@@ -118,6 +118,16 @@ To help you on your way with data conversion I will give you a few clues based o
 
 ## Your task
 
-Your task is to create a program that parses the data, converts it to human readable data like integers, decimals and strings and presents it in a nice way. Depending on your skills and interests you can create a web service that will provide the conversion data, or you could even create a UI to visualize the data somehow, it is entirely up to you what you make of it!
+### Option 1: Parsing the Modbus data
 
-Provide your solution as a Git repository preferably online like GitHub, e-mail me the link and describe your solution either in the mail or using the README markdown. If you decide to do a web service I'd love to see it up and running in the cloud. 
+Create a program that parses the data, converts it to human readable data like integers, decimals and strings and presents it in a nice way. Depending on your skills and interests you can create a web service that will provide the conversion data, or you could even create a UI to visualize the data somehow, it is entirely up to you what you make of it!
+
+### Option 2: Web app 
+
+If the data conversion path in option 1 is not something that interests you, or you prefer a more graphical solution, create a web app that retrieves and parses the data and presents it as is. The key point is to make use of data available in a backend, and present it in a mobile friendly way.
+
+## Presenting your solution
+
+Provide your solution as a Git repository preferably online like GitHub, e-mail me the link and describe your solution either in the mail or using the README markdown. We appreciate if you can host your solution somewhere in the cloud so we can see an actual demo of it, rather than just looking at code.
+
+There is no single solution to this problem, and we don't expect a complete solution to consider you for a position.
