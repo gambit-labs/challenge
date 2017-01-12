@@ -116,18 +116,20 @@ To help you on your way with data conversion I will give you a few clues based o
 - Register 33-34, Temperature #1/inlet is 7.101173400878906.
 - Register 92, Signal Quality is 38.
 
+The registers and their respective datatypes are explained in detail in [docs/tuf-2000m.pdf](https://github.com/gambit-labs/tuf-2000m/blob/master/docs/tuf-2000m.pdf) on pages 39-42.
+
 ## Your task
 
 ### Option 1: Parsing the Modbus data
 
 Create a program that parses the data, converts it to human readable data like integers, decimals and strings and presents it in a nice way. Depending on your skills and interests you can create a web service that will provide the conversion data, or you could even create a UI to visualize the data somehow, it is entirely up to you what you make of it!
 
-### Option 2: Web app 
+### Option 2: Web or native app 
 
-If the data conversion path in option 1 is not something that interests you, or you prefer a more graphical solution, create a web app that retrieves and parses the data and presents it as is. The key point is to make use of data available in a backend, and present it in a mobile friendly way.
+If the data conversion path in option 1 is not something that interests you, or you prefer a more graphical solution, create an app that retrieves and parses the data and presents it as is. The key point is to make use of data available in a backend, and present it in a mobile friendly way.
 
 ## Presenting your solution
 
 Provide your solution as a Git repository preferably online like GitHub, e-mail me the link and describe your solution either in the mail or using the README markdown. We appreciate if you can host your solution somewhere in the cloud so we can see an actual demo of it, rather than just looking at code.
 
-There is no single solution to this problem, and we don't expect a complete solution to consider you for a position.
+There is no single solution to this problem, and we don't expect a complete solution to consider you for a position. Showing good use Git workflow is appreciated.
