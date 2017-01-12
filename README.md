@@ -132,4 +132,4 @@ If the data conversion path in option 1 is not something that interests you, or 
 
 Provide your solution as a Git repository preferably online like GitHub, e-mail me the link and describe your solution either in the mail or using the README markdown. We appreciate if you can host your solution somewhere in the cloud so we can see an actual demo of it, rather than just looking at code.
 
-There is no single solution to this problem, and we don't expect a complete solution to consider you for a position. Good use Git workflow is appreciated.
+There is no single solution to this problem, and we don't expect a complete solution to consider you for a position. Good use of Git workflow is appreciated.
