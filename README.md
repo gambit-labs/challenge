@@ -1,4 +1,4 @@
-# TUF-2000M challenge
+# Gambit challenge
 
 ## Problem description
 
