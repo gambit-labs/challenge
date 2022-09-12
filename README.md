@@ -120,16 +120,24 @@ The registers and their respective datatypes are explained in detail in [docs/tu
 
 ## Your task
 
-### Option 1: Parsing the Modbus data
+Select one task from below. There is no single solution to these problems and we don't expect a complete solution to consider you for a position.
 
-Create a program that parses the data, converts it to human readable data like integers, decimals and strings and presents it in a nice way. Depending on your skills and interests you can create a web service that will provide the conversion data, or you could even create a UI to visualize the data somehow, it is entirely up to you what you make of it!
+### Option 1: Create an REST API that parses the data to a readable form
+- .NET Core or maybe node.js?
+- JSON output is greatly appreciated
+- Easily deployable and testable
+- Authentication
 
-### Option 2: Web or native app 
-
-If the data conversion path in option 1 is not something that interests you, or you prefer a more graphical solution, create an app that retrieves and parses the data and presents it as is. The key point is to make use of data available in a backend, and present it in a mobile friendly way.
+### Option 2: Create UI for showing the data for user
+- Modern javascript frameworks or maybe an mobile app. It's up to you
+- Easily deployable and testable
+- UX will be also a key factor on this
+- Authentication
 
 ## Presenting your solution
 
-Provide your solution as a Git repository, e-mail me the link to your private repo, or as a zip file and describe your solution either in the mail or using the README markdown. We appreciate if you can host your solution somewhere in the cloud so we can see an actual demo of it, rather than just looking at code.
+Provide your solution as a Git repository, e-mail me the link to your private repo. 
 
-There is no single solution to this problem, and we don't expect a complete solution to consider you for a position. Good use of Git version control is appreciated.
+We appreciate if you can host your solution somewhere in the cloud or VPS so we can see an actual demo of it, rather than just looking at code.
+
+Good use of Git version control is appreciated.
