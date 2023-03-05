@@ -9,12 +9,14 @@ const App = () => {
 
   const [data, setData] = useState([]);
   const [dataContent, setDataContent] = useState([]);
+  const [searchquery, setSearchquery]=useState()
+  const [user, setUser]=useState('')
   const dataObj = {};
    
   const fetchData = () => {
-    let corsAnywhere = "https://cors-anywhere.herokuapp.com/";
-    let gambitlabs = "http://tuftuf.gambitlabs.fi/feed.txt";
-    fetch(corsAnywhere + gambitlabs)
+    let corsHttpAddress = "https://cors-anywhere.herokuapp.com/";
+    let gambitLabsAddress = "http://tuftuf.gambitlabs.fi/feed.txt";
+    fetch(corsHttpAddress + gambitLabsAddress)
       .then((response) => response.text())
       .then((result) => {
         const theDataArr = result.replace(/\n/g, " ");
@@ -23,7 +25,9 @@ const App = () => {
       });
   };
 
-  useEffect(() => {   
+  useEffect(() => {    
+    const user = getCurrentUser();
+    setUser(user);    
     fetchData();
     data.forEach((val) => {
       var key = val.split(":")[0];
@@ -33,10 +37,36 @@ const App = () => {
     const k = Object.values(dataObj);
     setDataContent(k);
   
-  }, [data]);
+  }, [data, searchquery]);
 
    return (
-console.log(dataContent)
+    <div>
+      <header className="header">
+        <div >
+          <h1 className="logo">TUF-2000M Registers</h1>              
+        </div>
+        <div className="searchBox">
+          <SearchBox value={searchquery} onChange={(e) => setSearchquery(e.target.value)} />
+        </div>
+        <div>
+        <p>
+            Registery Date:{" "}
+            <span className="registryTime">
+              {`${data[0]} ${data[1]} `}
+            </span>
+          </p></div> 
+                
+      </header>
+      <main className="main">
+        <DisplayResult         
+        readingData={dataContent}
+        searchquery={searchquery}      
+        /> 
+      </main>
+      <footer className="footer" > 
+          <Footer />
+      </footer>
+    </div>
   )
 }
 
