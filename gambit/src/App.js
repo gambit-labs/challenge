@@ -58,10 +58,13 @@ const App = () => {
                 
       </header>
       <main className="main">
+        {(user===null)? 
+        <LoginForm />:
         <DisplayResult         
         readingData={dataContent}
         searchquery={searchquery}      
-        /> 
+        />  
+        }         
       </main>
       <footer className="footer" > 
           <Footer />
