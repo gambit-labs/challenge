@@ -1,71 +1,44 @@
-import React, { Component } from "react";
-import axios from 'axios'
+import { useEffect, useState } from "react";
+import Footer from "./components/footer";
+import DisplayResult from "./components/displayResult";
+import SearchBox from "./components/common/searchBox";
+import LoginForm from "./components/loginForm";
+import { getCurrentUser } from "./services/auth.service";
 import "./App.css";
+const App = () => {
 
-class App extends Component {
-  state = {
-    posts: []
+  const [data, setData] = useState([]);
+  const [dataContent, setDataContent] = useState([]);
+  const dataObj = {};
+   
+  const fetchData = () => {
+    let corsAnywhere = "https://cors-anywhere.herokuapp.com/";
+    let gambitlabs = "http://tuftuf.gambitlabs.fi/feed.txt";
+    fetch(corsAnywhere + gambitlabs)
+      .then((response) => response.text())
+      .then((result) => {
+        const theDataArr = result.replace(/\n/g, " ");
+        const array = theDataArr.split(" ");
+        setData(array);
+      });
   };
 
-  async componentDidMount() { 
-    //http://tuftuf.gambitlabs.fi/feed.txt
-    const {data:posts}=await axios.get('https://jsonplaceholder.typicode.com/posts')
-    this.setState({posts})
-   }
+  useEffect(() => {   
+    fetchData();
+    data.forEach((val) => {
+      var key = val.split(":")[0];
+      var value = val.split(":")[1];
+      dataObj[key] = value;
+    });
+    const k = Object.values(dataObj);
+    setDataContent(k);
+  
+  }, [data]);
 
-  handleAdd = () => {
-    console.log("Add");
-  };
-
-  handleUpdate = post => {
-    console.log("Update", post);
-  };
-
-  handleDelete = post => {
-    console.log("Delete", post);
-  };
-
-  render() {
-    return (
-      <React.Fragment>
-        <button className="btn btn-primary" onClick={this.handleAdd}>
-          Add
-        </button>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Update</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.posts.map(post => (
-              <tr key={post.id}>
-                <td>{post.title}</td>
-                <td>
-                  <button
-                    className="btn btn-info btn-sm"
-                    onClick={() => this.handleUpdate(post)}
-                  >
-                    Update
-                  </button>
-                </td>
-                <td>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => this.handleDelete(post)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </React.Fragment>
-    );
-  }
+   return (
+console.log(dataContent)
+  )
 }
+
 
 export default App;
