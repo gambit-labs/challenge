@@ -1,10 +1,10 @@
-# Getting Started with Create React App
 
+# Create UI for showing the data for user
 This project is a code challenge task named ad Gambit-challenge 
-
-
 The folling are scripts and links how to operate it.
 
+# Getting Started with Create React App
+Run the script in windows explorer or set the security of your browser
 ## Available Scripts
 In the project directory, you can run:
 ### `npm start`
