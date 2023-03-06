@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import _ from 'lodash'
 import { variables } from '../../configs/local'
 class TableBody extends Component {
   render() {

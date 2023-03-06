@@ -11,7 +11,6 @@ export function login(username, password) {
     return false
   }
 }
-
 export function logout() {
   localStorage.removeItem(tokenKey);
   return null

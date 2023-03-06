@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
+import Joi from 'joi-browser'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
 import AuthService from '../services/auth.service'
 import withParamsAndNavigate from '../utils/getNavigate'
-
-import Joi from 'joi-browser'
+import HeaderPage from './common/headerPage'
+import Footer from './footer'
 const required = (value) => {
   if (!value) {
     return (
@@ -15,10 +15,6 @@ const required = (value) => {
       </div>
     )
   }
-}
-function WithNavigate(props) {
-  let navigate = useNavigate()
-  return <Login {...props} navigate={navigate} />
 }
 class Login extends React.Component {
   schema = {
@@ -99,57 +95,63 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login">
-        <h1>Login</h1>
-        <Form
-          onSubmit={this.handleLogin}
-          ref={(c) => {
-            this.form = c
-          }}
-        >
-          <label htmlFor="username">Username</label>
-          <Input
-            type="text"
-            className="form-control"
-            name="username"
-            value={this.state.username}
-            onChange={this.onChangeUsername}
-            validations={[required]}
-          />
-
-          <label htmlFor="password">Password</label>
-          <Input
-            type="password"
-            className="form-control"
-            name="password"
-            value={this.state.password}
-            onChange={this.onChangePassword}
-            validations={[required]}
-          />
-          <button
-            className="btn btn-primary btn-block"
-            disabled={this.state.loading}
-          >
-            {this.state.loading && (
-              <span className="spinner-border spinner-border-sm"></span>
-            )}
-            <span>Login</span>
-          </button>
-
-          {this.state.message && (
-            <div className="form-group">
-              <div className="alert alert-danger" role="alert">
-                {this.state.message}
-              </div>
-            </div>
-          )}
-          <CheckButton
-            style={{ display: 'none' }}
+      <div>
+        <HeaderPage />
+        <div className="login">
+          <h1>Login</h1>
+          <Form
+            onSubmit={this.handleLogin}
             ref={(c) => {
-              this.checkBtn = c
+              this.form = c
             }}
-          />
-        </Form>
+          >
+            <label htmlFor="username">Username</label>
+            <Input
+              type="text"
+              className="form-control"
+              name="username"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+              validations={[required]}
+            />
+
+            <label htmlFor="password">Password</label>
+            <Input
+              type="password"
+              className="form-control"
+              name="password"
+              value={this.state.password}
+              onChange={this.onChangePassword}
+              validations={[required]}
+            />
+            <button
+              className="btn btn-primary btn-block"
+              disabled={this.state.loading}
+            >
+              {this.state.loading && (
+                <span className="spinner-border spinner-border-sm"></span>
+              )}
+              <span>Login</span>
+            </button>
+
+            {this.state.message && (
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {this.state.message}
+                </div>
+              </div>
+            )}
+            <CheckButton
+              style={{ display: 'none' }}
+              ref={(c) => {
+                this.checkBtn = c
+              }}
+            />
+          </Form>
+        </div>
+        <footer className="footer">
+          <Footer />
+        </footer>
       </div>
     )
   }

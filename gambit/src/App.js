@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import GetData from './components/getData';
+import { BrowserRouter as Router} from 'react-router-dom';
+import DataComponent from './components/dataComponent';
 import Login from './components/login';
-import Logout from './components/logout';
-import './App.css';
+import Logout from './components/logout'
+import RegisterForm from './components/registerForm'
+import PublicRoute from './components/route/publicRoute';
+import PrivateRoute from './components/route/privateRoute';
+import './App.css';;
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Routes>
-          <Route element={<Login/>} path='/login' exact/>
-          <Route element={<Login/>} path='/' exact/>
-          <Route element={<GetData/>} path='/display' exact/>
-          <Route element={<Logout/>} path='/Logout' exact/> 
-        </Routes>
+          <PublicRoute element={<Login/>} path='/login' exact/>
+          <PublicRoute element={<Login/>} path='/' exact/>
+          <PublicRoute element={<DataComponent/>} path='/display' exact/>
+          <PublicRoute element={<Logout/>} path='/Logout' exact/>  
+          <PrivateRoute element={<RegisterForm/>} path='/register' exact />
       </Router>
     );
   }

@@ -21,7 +21,7 @@ function PrivateRoute({ element: Component, ...rest }) {
         render={() =>
           auth ? (
             <div>
-              {getCurrentUser().role == 1 && <></>}
+              {getCurrentUser().role === 1 && <></>}
               <Component {...rest} />
             </div>
           ) : (

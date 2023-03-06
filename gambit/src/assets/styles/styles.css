@@ -176,7 +176,15 @@
   .login button,label, input{
     margin-top: 20px;
   }
-  
+  p.error{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: #e40b0b;
+  font-size: 2.2rem;
+  margin-left: 250px;
+  }
   
   
   

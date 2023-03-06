@@ -25,27 +25,33 @@ class DisplayResult extends Component {
     const startIndex = (currentPage - 1) * pageSize
     const paginatedData = paginate(readingData, currentPage, pageSize)
 
-    if (readingData.length === 0)
-      return <p>There are no reading in the database.</p>
-
-    return (
-      <div>
-        <Table
-          columns={columns}
-          paginatedData={paginatedData}
-          startIndex={startIndex}
-          sortColumn={sortColumn}
-        />
-        <div className="table">
-          <Pagination
-            itemsCount={readingData.length}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={this.handlePageChange}
+    if (!readingData[0]) {
+      return (
+        <p className="error">
+          No data is feched: <br /> Please check your network or access
+          credential
+        </p>
+      )
+    } else {
+      return (
+        <div>
+          <Table
+            columns={columns}
+            paginatedData={paginatedData}
+            startIndex={startIndex}
+            sortColumn={sortColumn}
           />
+          <div className="table">
+            <Pagination
+              itemsCount={readingData.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 

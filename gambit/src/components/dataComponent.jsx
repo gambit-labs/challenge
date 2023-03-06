@@ -3,9 +3,9 @@ import Footer from './footer'
 import DisplayResult from './displayResult'
 import SearchBox from './common/searchBox'
 import { apiUrl, corsUrl } from '../configs/config.json'
-import '../asets/styles/styles.css'
+import '../assets/styles/styles.css'
 
-const GetData = () => {
+const DataComponent = () => {
   const [data, setData] = useState([])
   const [dataContent, setDataContent] = useState([])
   const [searchquery, setSearchquery] = useState()
@@ -61,4 +61,4 @@ const GetData = () => {
   )
 }
 
-export default GetData
+export default DataComponent
