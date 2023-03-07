@@ -25,7 +25,7 @@ function PrivateRoute({ element: Component, ...rest }) {
               <Component {...rest} />
             </div>
           ) : (
-            { component: () => <Navigate to="/login" /> }
+            { Component: () => <Navigate to="/login" /> }
           )
         }
       />

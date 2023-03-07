@@ -9,6 +9,7 @@ const DataComponent = () => {
   const [data, setData] = useState([])
   const [dataContent, setDataContent] = useState([])
   const [searchquery, setSearchquery] = useState()
+  const [loadingError, setLoadingError] = useState(false)
   const dataObj = {}
 
   const fetchData = () => {
@@ -18,6 +19,10 @@ const DataComponent = () => {
         const theDataArr = result.replace(/\n/g, ' ')
         const array = theDataArr.split(' ')
         setData(array)
+      })
+      .catch((err) => {
+        setLoadingError(true)
+        console.log(err)
       })
   }
 

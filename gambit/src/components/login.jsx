@@ -1,10 +1,11 @@
 import React from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Joi from 'joi-browser'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
 import AuthService from '../services/auth.service'
-import withParamsAndNavigate from '../utils/getNavigate'
 import HeaderPage from './common/headerPage'
 import Footer from './footer'
 const required = (value) => {
@@ -16,39 +17,32 @@ const required = (value) => {
     )
   }
 }
-class Login extends React.Component {
-  schema = {
+const Login = () => {
+  const [username, setUsername] = useState({ username: '' })
+  const [password, setPassword] = useState({ password: '' })
+  const [loading, setLoading] = useState({ loading: false })
+  const [message, setMessage] = useState()
+
+  const navigate = useNavigate()
+  const schema = {
     username: Joi.string().required().label('Username'),
     password: Joi.string().required().label('Password'),
   }
-  constructor(props) {
-    super(props)
-    this.handleLogin = this.handleLogin.bind(this)
-    this.onChangeUsername = this.onChangeUsername.bind(this)
-    this.onChangePassword = this.onChangePassword.bind(this)
 
-    this.state = {
-      username: '',
-      password: '',
-      loading: false,
-      message: '',
-    }
-  }
-
-  onChangeUsername(e) {
-    this.setState({
+  const onChangeUsername = (e) => {
+    setUsername({
       username: e.target.value,
     })
   }
 
-  onChangePassword(e) {
-    this.setState({
+  const onChangePassword = (e) => {
+    setPassword({
       password: e.target.value,
     })
   }
-  validate = () => {
+  const validate = () => {
     const options = { abortEarly: false }
-    const { error } = Joi.validate(this.state.data, this.schema, options)
+    const { error } = Joi.validate([username, password], schema, options)
     if (!error) return null
 
     const errors = {}
@@ -56,105 +50,76 @@ class Login extends React.Component {
     return errors
   }
 
-  validateProperty = ({ name, value }) => {
-    const obj = { [name]: value }
-    const schema = { [name]: this.schema[name] }
-    const { error } = Joi.validate(obj, schema)
-    return error ? error.details[0].message : null
-  }
-
-  handleLogin = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault()
 
-    this.setState({
-      message: '',
-      loading: true,
-    })
+    setMessage({ message: '' })
+    setLoading({ loading: true })
 
-    this.validate()
-    if (this.checkBtn.context._errors.length === 0) {
-      console.log('came here on login....')
-      const auth = AuthService.login(this.state.username, this.state.password)
-      if (auth) {
-        this.props.navigate('/display')
-        window.location.reload()
-      } else {
-        const resMessage = 'Invalide credential username or password'
-
-        this.setState({
-          loading: false,
-          message: resMessage,
-        })
-      }
+    validate()
+    console.log('came here on login....')
+    const auth = AuthService.login(username.username, password.password)
+    console.log('auth', auth)
+    if (auth) {
+      navigate('/display')
+      //window.location.reload()
     } else {
-      this.setState({
-        loading: false,
-      })
+      const resMessage = 'Invalide credential username or password'
+
+      setMessage({ message: resMessage })
+      setLoading({ loading: false })
     }
   }
 
-  render() {
-    return (
-      <div>
-        <HeaderPage />
-        <div className="login">
-          <h1>Login</h1>
-          <Form
-            onSubmit={this.handleLogin}
-            ref={(c) => {
-              this.form = c
-            }}
+  return (
+    <div>
+      <HeaderPage />
+      <div className="login">
+        <h1>Login</h1>
+        <Form onSubmit={handleLogin}>
+          <label htmlFor="username">Username</label>
+          <Input
+            type="text"
+            className="form-control"
+            name="username"
+            value={username.username}
+            onChange={onChangeUsername}
+            validations={[required]}
+          />
+
+          <label htmlFor="password">Password</label>
+          <Input
+            type="password"
+            className="form-control"
+            name="password"
+            value={password.password}
+            onChange={onChangePassword}
+            validations={[required]}
+          />
+          <button
+            className="btn btn-primary btn-block"
+            disabled={loading.loading}
           >
-            <label htmlFor="username">Username</label>
-            <Input
-              type="text"
-              className="form-control"
-              name="username"
-              value={this.state.username}
-              onChange={this.onChangeUsername}
-              validations={[required]}
-            />
-
-            <label htmlFor="password">Password</label>
-            <Input
-              type="password"
-              className="form-control"
-              name="password"
-              value={this.state.password}
-              onChange={this.onChangePassword}
-              validations={[required]}
-            />
-            <button
-              className="btn btn-primary btn-block"
-              disabled={this.state.loading}
-            >
-              {this.state.loading && (
-                <span className="spinner-border spinner-border-sm"></span>
-              )}
-              <span>Login</span>
-            </button>
-
-            {this.state.message && (
-              <div className="form-group">
-                <div className="alert alert-danger" role="alert">
-                  {this.state.message}
-                </div>
-              </div>
+            {loading.loading && (
+              <span className="spinner-border spinner-border-sm"></span>
             )}
-            <CheckButton
-              style={{ display: 'none' }}
-              ref={(c) => {
-                this.checkBtn = c
-              }}
-            />
-          </Form>
-        </div>
-        <footer className="footer">
-          <Footer />
-        </footer>
+            <span>Login</span>
+          </button>
+
+          {message && (
+            <div className="form-group">
+              <div className="alert alert-danger" role="alert">
+                {message.message}
+              </div>
+            </div>
+          )}
+        </Form>
       </div>
-    )
-  }
+      <footer className="footer">
+        <Footer />
+      </footer>
+    </div>
+  )
 }
 
-export default withParamsAndNavigate(Login)
+export default Login

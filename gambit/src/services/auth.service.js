@@ -3,8 +3,9 @@ import { users } from "../mockData/users";
 const tokenKey = "token";
 
 export function login(username, password) {
+  
   if((users.some(a=>a.username===username)) && (users.some(a=>a.password===password))){
-    localStorage.setItem(tokenKey, [username,password])
+       //localStorage.setItem(tokenKey, [username,password])
     return true
   }
   else{
@@ -18,6 +19,7 @@ export function logout() {
 
 export function getCurrentUser() {
   try {
+    // fech the current user role 
     const jwt = localStorage.getItem(tokenKey);
     return jwtDecode(jwt);
   } catch (ex) {
