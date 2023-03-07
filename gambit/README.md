@@ -3,21 +3,20 @@
 This project is a code challenge task named ad Gambit-challenge 
 The folling are scripts and links how to operate it.
 # Technology
-Frontend: React with JavaScript
-Version control: git
-Backend: nodejs // Not completed
+# Frontend: React with JavaScript
+# Version control: git
+# Backend: nodejs // Not completed
 # Getting Started with Create React App
 Run the script in windows explorer or set the security of your browser
 For test the project you can see the local saved password in 
-## Available Scripts
+
 In the project directory, you can run:
 ../mockData/users.jsx # temporary username and password are saved there.
+## Available Scripts
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
 
 N.b: this project is not build 
 ### `npm run build`
