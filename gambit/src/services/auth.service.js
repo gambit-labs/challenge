@@ -1,34 +1,33 @@
-import jwtDecode from "jwt-decode";
-import { users } from "../mockData/users";
-const tokenKey = "token";
 
-export function login(username, password) {
-  
-  if((users.some(a=>a.username===username)) && (users.some(a=>a.password===password))){
-       //localStorage.setItem(tokenKey, [username,password])
-    return true
-  }
-  else{
-    return false
-  }
-}
-export function logout() {
-  localStorage.removeItem(tokenKey);
-  return null
+import axios from "axios";
+class AuthService {
+    login(username, password) {
+        console.log('LOGIN service...',username,password)
+         return axios
+            .post("http://localhost:8080/api/auth/signin", {
+                username,
+                password
+            })
+            .then(response => {
+                if (response.data.role) {
+                    localStorage.setItem("user", JSON.stringify(response.data));
+                    return response.data;
+                }
+                else {
+                    console.log('Invalid credentials returned',response.data)
+                    return response.data;
+                }
+               
+            }); 
+    }
+
+    logout() {
+        localStorage.removeItem("user");
+    }
+
+    getCurrentUser() {
+        return JSON.parse(localStorage.getItem('user'));
+    }
 }
 
-export function getCurrentUser() {
-  try {
-    // fech the current user role 
-    const jwt = localStorage.getItem(tokenKey);
-    return jwtDecode(jwt);
-  } catch (ex) {
-    return null;
-  }
-}
-
-export default {
-  login,
-  logout,
-  getCurrentUser
-};
+export default new AuthService();
