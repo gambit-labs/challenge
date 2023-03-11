@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Navigate, Routes } from 'react-router-dom'
-import { getCurrentUser } from './../../services/auth.service'
+import {getCurrentUser} from '../../services/auth.service'
 
 const useAuth = () => {
   const user = localStorage.getItem('user')

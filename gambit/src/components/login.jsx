@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import Joi from 'joi-browser'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
-import CheckButton from 'react-validation/build/button'
 import AuthService from '../services/auth.service'
 import HeaderPage from './common/headerPage'
 import Footer from './footer'
@@ -58,17 +57,24 @@ const Login = () => {
 
     validate()
     console.log('came here on login....')
-    const auth = AuthService.login(username.username, password.password)
-    console.log('auth', auth)
-    if (auth) {
-      navigate('/display')
-      //window.location.reload()
-    } else {
-      const resMessage = 'Invalide credential username or password'
+    AuthService.login(username.username, password.password).then(
+      () => {
+        console.log('came here on login....')
+        navigate('/display')
+        window.location.reload()
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString()
 
-      setMessage({ message: resMessage })
-      setLoading({ loading: false })
-    }
+        setMessage({ message: resMessage })
+        setLoading({ loading: false })
+      },
+    )
   }
 
   return (

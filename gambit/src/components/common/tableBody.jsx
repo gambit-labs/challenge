@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { variables } from '../../configs/local'
+import { variables } from '../../utils/variable'
 class TableBody extends Component {
   render() {
     const { paginatedData, startIndex } = this.props

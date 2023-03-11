@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 import Footer from './footer'
 import DisplayResult from './displayResult'
 import SearchBox from './common/searchBox'
@@ -13,16 +14,22 @@ const DataComponent = () => {
   const dataObj = {}
 
   const fetchData = () => {
-    fetch(corsUrl + apiUrl)
+    axios
+      .get(corsUrl + apiUrl)
       .then((response) => response.text())
       .then((result) => {
         const theDataArr = result.replace(/\n/g, ' ')
         const array = theDataArr.split(' ')
         setData(array)
       })
-      .catch((err) => {
-        setLoadingError(true)
-        console.log(err)
+      .catch((error) => {
+        switch (error.response.status) {
+          case 403:
+            setLoadingError(true)
+            console.log(error.message)
+          default:
+            break
+        }
       })
   }
 
