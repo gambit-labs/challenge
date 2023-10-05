@@ -136,7 +136,7 @@ Select one task from below. There is no single solution to these problems and we
 
 ## Presenting your solution
 
-Provide your solution as a Git repository, e-mail me the link to your private repo. 
+Provide your solution as a *private* Git repository, then share your private repo with our GitHub account `ateaimf` (https://github.com/ateaimf). 
 
 We appreciate if you can host your solution somewhere in the cloud or VPS so we can see an actual demo of it, rather than just looking at code.
 
