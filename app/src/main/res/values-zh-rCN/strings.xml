@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meter Reader</string>
+    <string name="positive_energy">"Positive Energy "</string>
+    <string name="negtive_energy">"Negative Energy "</string>
+    <string name="temperature">Temperature</string>
+    <string name="signal_quality">Signal Quality</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="dha">Welcom to Meter Reading App</string>
+    <string name="btl">Back to Login</string>
+    <string name="textview">TextView</string>
+    <string name="refresh_icon">Refresh icon</string>
+    <string name="search_here">Search here</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="welcom_to_meter_reading_app">Welcom to Meter Reading App</string>
+    <string name="latestReading">Latest Reading</string>
+    <string name="recentHistory">Recent History</string>
+</resources>

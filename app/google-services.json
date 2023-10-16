@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "154914327689",
+    "project_id": "tuf-2000mmobileapp",
+    "storage_bucket": "tuf-2000mmobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154914327689:android:5e7ed85d6e06c7e71d0a58",
+        "android_client_info": {
+          "package_name": "com.tuf2000m.energymeter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVbXOCACRUmIahXhLIYgljK4x8YOow1Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154914327689:android:088275fa4f98382f1d0a58",
+        "android_client_info": {
+          "package_name": "com.venkat.tuf2000m"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVbXOCACRUmIahXhLIYgljK4x8YOow1Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

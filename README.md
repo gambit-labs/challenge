@@ -1,12 +1,10 @@
-# Gambit challenge
+## TUF-2000M Mobile App
 
-## Problem description
+## Product Description
+The TUF-2000M Mobile App is designed to provide a user-friendly interface for viewing data from the TUF-2000M ultrasonic energy meter. This app fetches data from the associated REST API and presents it to the user in a readable and intuitive manner.
 
-TUF-2000M is an ultrasonic energy meter that has a [Modbus](https://en.wikipedia.org/wiki/Modbus) interface described in docs/tuf-2000m.pdf.
+Gambit has access to one of these meters and it is providing you a live text feed that shows the time of the reading followed by the first 100 register values which look like this:
 
-Gambit has access to one of these meters and it is providing you a [live text feed](http://tuftuf.gambitlabs.fi/feed.txt) that shows the time of the reading followed by the first 100 register values which look like this:
-
-```
 2017-01-11 19:12
 1:7579
 2:48988
@@ -108,36 +106,72 @@ Gambit has access to one of these meters and it is providing you a [live text fe
 98:17105
 99:3374
 100:17839
-```
 
-To help you on your way with data conversion I will give you a few clues based on the example data above:
+## Features
+- Display parsed data from the TUF-2000M ultrasonic energy meter.
+- User-friendly interface for easy data visualization.
+- Secure authentication for user access.
 
-- Register 21-22, Negative energy accumulator is -56.
-- Register 33-34, Temperature #1/inlet is 7.101173400878906.
-- Register 92, Signal Quality is 38.
+## User Manual
+Information on the registries, variable names, units, notes, and formats are available on pages 39-42. docs/tuf-2000m.pdf
 
-The registers and their respective datatypes are explained in detail in [docs/tuf-2000m.pdf](https://github.com/gambit-labs/tuf-2000m/blob/master/docs/tuf-2000m.pdf) on pages 39-42.
+## Getting Started
+Follow these steps to set up the project and run the app locally:
 
-## Your task
+1. Clone the repository to your local machine.
+2. Open the project in Android Studio.
+3. Build and run the app on an Android emulator or a physical device.
 
-Select one task from below. There is no single solution to these problems and we don't expect a complete solution to consider you for a position.
+## Usage
+1. Launch the app.
+2. Tap on the Sign-up text to register or use dummy credentials to log in (test@gmail.com / Atea@123#)
+3. View the parsed data from the TUF-2000M ultrasonic energy meter in the home view pager screen.
 
-### Option 1: Create an REST API that parses the data to a readable form
-- .NET Core or maybe node.js?
-- JSON output is greatly appreciated
-- Easily deployable and testable
-- Authentication
+## Technologies Used
+- Kotlin
+- Android Studio
 
-### Option 2: Create UI for showing the data for user
-- Modern javascript frameworks or maybe an mobile app. It's up to you
-- Easily deployable and testable
-- UX will be also a key factor on this
-- Authentication
+## Dependencies
+- [Retrofit](https://square.github.io/retrofit/) for making HTTP requests.
+- [Gson](https://github.com/google/gson) for JSON serialization and deserialization.
+- Hilt for dependency injection
+- Jetpack components
+- Firebase
+- -Etc...
 
-## Presenting your solution
+## Testing
+1. Signed apk distributed link for internal testing:  https://appdistribution.firebase.dev/i/0bde28dffa675f6a 
+(Please follow the instructions, once registered I need to approve and you can install the application, its a signed build, but need to allow from unknown source)
+2. To view the demo video, here is the link - https://drive.google.com/drive/folders/1b5gtmzvwHqkAr0e5juCrw9oakHomrRjF
+3. Unit and UI tests are yet to be implemented to ensure the app's functionality and user interface work as expected.
 
-Provide your solution as a *private* Git repository, then share your private repo with our GitHub account `ateaimf` (https://github.com/ateaimf). 
+## Additional info:
+1. Some supporting information in this Google Drive link - https://drive.google.com/drive/folders/1b5gtmzvwHqkAr0e5juCrw9oakHomrRjF
+2. https://my-json-server.typicode.com/MinchalaVenkatSunil/demo - "my-json-server.typicode.com", used the restricted sample with limitations to fetch JSON response.
 
-We appreciate if you can host your solution somewhere in the cloud or VPS so we can see an actual demo of it, rather than just looking at code.
+## Additional Thoughts:
+	1. **Localization** support based on language ID stored in the registry. Initiated but still needs to be completed fully.
+	2. **Offline** support to access previously fetched data and other few timestamps. 
+	3. Ask for **user feedback** once on a scheduled basis. 
+	4. **Charts, graphs** presentation, maybe on the favorite items for better visualization. 
+	5. User settings for font size, **dark mode** support
+	6. Add more UI and unit test coverage. 
+	7. Support for multiple form factors. 
+	8. Extend the support to Apple devices and others using **cross-platform technologies** using React Xamarin forms.
+	9. An eye on code quality and best practices.  
+	10. Automatically publish to Play or App Store on production repo commit using **CICD pipelines**. Just to let you know, it was started and is in progress. 
+	11. Need to utilize **analytics** to analyze user behavior and generate reports for decision-making and UI improvements.
+	12. iPasS **serverless triggers** (e.g., logic apps, functions, Azure stream job analytics) for data processing and desired output transformation.
+	13. Tokens to keep all the information shared between the app and the server safe and secure.
+	14. I believe we can implement some features to the existing list to make a user-friendly UI. 
+		a. Sort by category
+		b. Sort by Alphabet
+		c. Favorites (if the user wants to see specific Readings only)
+		d. Search as the list might be big
+    e. Grouping the related content
 
-Good use of Git version control is appreciated.
+## Backend
+[TODO: Once the actual backend is ready in a separate repo we will add more info on how to consume those API's later]
+
+## License
+This project is licensed under the [MIT License](LICENSE).
