@@ -140,7 +140,8 @@ Follow these steps to set up the project and run the app locally:
 - -Etc...
 
 ## Testing
-Unit and UI tests are yet to be implemented to ensure the app's functionality and user interface work as expected.
+1. Signed apk distributed link for internal testing:  https://appdistribution.firebase.dev/i/0bde28dffa675f6a
+2. Unit and UI tests are yet to be implemented to ensure the app's functionality and user interface work as expected.
 
 ## Additional info:
 1. Some supporting information in this Google Drive link - https://drive.google.com/drive/folders/1b5gtmzvwHqkAr0e5juCrw9oakHomrRjF
